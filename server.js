@@ -11,8 +11,8 @@ require('dotenv').config();
 require('./db/db');   // runs the db.js file
 const {store} = require('./db/mongo_session'); // mongo session config file
 
-const Bike = require('./models/bikes');
-const bikes = require('./input_files/bikes_data');
+// const Bike = require('./models/bikes');
+// const bikes = require('./input_files/bikes_data');
 
 // for(let i = 0; i < bikes.length; i++) {
 //   Bike.create(bikes[i]);
@@ -24,7 +24,7 @@ const geocode = require('./api/geocode');
 const weather = require('./api/weather');
 
 const app = express();
-const port = process.env.PORT || 7000;
+const port = process.env.PORT || 3000;
 
 // middleware
 app.use(express.static('public'));
