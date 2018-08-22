@@ -14,9 +14,9 @@ const {store} = require('./db/mongo_session'); // mongo session config file
 const Bike = require('./models/bikes');
 const bikes = require('./input_files/bikes_data');
 
-for(let i = 0; i < bikes.length; i++) {
-  Bike.create(bikes[i]);
-}
+// for(let i = 0; i < bikes.length; i++) {
+//   Bike.create(bikes[i]);
+// }
 
 require('./passport/serializing');
 require('./passport/local-config');
