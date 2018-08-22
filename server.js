@@ -11,12 +11,12 @@ require('dotenv').config();
 require('./db/db');   // runs the db.js file
 const {store} = require('./db/mongo_session'); // mongo session config file
 
-// const Bike = require('./models/bikes');
-// const bikes = require('./input_files/bikes_data');
+const Bike = require('./models/bikes');
+const bikes = require('./input_files/bikes_data');
 
-// for(let i = 0; i < bikes.length; i++) {
-//   Bike.create(bikes[i]);
-// }
+for(let i = 0; i < bikes.length; i++) {
+  Bike.create(bikes[i]);
+}
 
 require('./passport/serializing');
 require('./passport/local-config');
@@ -51,19 +51,19 @@ app.use((req, res, next) => {
 });
 // require the controller(s)
 const usersController = require('./controllers/users');
-// const bikesController = require('./controllers/bikes');
+const bikesController = require('./controllers/bikes');
 const trailsController = require('./controllers/trails');
 
-app.use('/users', usersController);
-// app.use('/bikes', bikesController);
-app.use('/trails', trailsController);
+// app.use('/users', usersController);
+app.use('/bikes', bikesController);
+// app.use('/trails', trailsController);
 
 app.use('/users', usersController);
-// app.use('/bikes', bikesController);
+app.use('/bikes', bikesController);
 app.use('/trails', trailsController);
 
 app.get('/', (req, res) => {
-	res.render('index.ejs');
+  res.render('index.ejs');
 });
 
 app.get('/extras', (req, res) => {
